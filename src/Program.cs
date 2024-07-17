@@ -33,7 +33,7 @@ namespace TextEditor
                 Raylib.ClearBackground(Color.RayWhite);
 
                 textEditorWindow.Draw();
-
+                
 
                 Raylib.EndDrawing();
             }
