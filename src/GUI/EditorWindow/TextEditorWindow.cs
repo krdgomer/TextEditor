@@ -10,14 +10,18 @@ namespace TextEditor.src.GUI.EditorWindow
     internal class TextEditorWindow
     {
         TextBox TextEditorTextBox = new TextBox();
+        Menubar MenuBar = new Menubar();
 
         public void Update()
         {
             TextEditorTextBox.Update();
+            MenuBar.Update();
         }
         public void Draw()
         {
+            MenuBar.Draw();
             TextEditorTextBox.Draw();
+            
         }
         public void Unload()
         {

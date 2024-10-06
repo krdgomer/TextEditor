@@ -2,6 +2,7 @@
 using System.Numerics;
 using Raylib_cs;
 using TextEditor.GUI;
+using TextEditor.src.Class;
 using TextEditor.src.GUI.EditorWindow;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -11,10 +12,9 @@ namespace TextEditor
     {
         static void Main(string[] args)
         {
-            const int screenWidth = 800;
-            const int screenHeight = 450;
+        
 
-            Raylib.InitWindow(screenWidth, screenHeight, "Raylib Text Editor Example");
+            Raylib.InitWindow(Globals.WindowWidth, Globals.WindowHeight, "Nightshade Editor");
 
             TextEditorWindow textEditorWindow = new TextEditorWindow();
 
