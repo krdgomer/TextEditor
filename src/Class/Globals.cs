@@ -10,6 +10,6 @@ namespace TextEditor.src.Class
     {
         public const int WindowWidth = 800;
         public const int WindowHeight = 450;
-        public const int MenubarHeight = 40;
+        public const int MenubarHeight = 30;
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Font = Raylib_cs.Font;
 
 namespace TextEditor.src.Class
 {
@@ -223,6 +224,15 @@ namespace TextEditor.src.Class
         public float getTextHeight(float fontsize)
         {
             return StringLines.Count * fontsize;
+        }
+        public string GetString()
+        {
+            string textStr = "";
+            for(int i = 0; i < StringLines.Count; i++)
+            {
+                textStr += StringLines[i] + "\n";
+            }
+            return textStr;
         }
 
 

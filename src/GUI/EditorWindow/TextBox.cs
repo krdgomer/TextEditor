@@ -1,8 +1,12 @@
-﻿using Raylib_cs;
+﻿using ImGuiNET;
+using Raylib_cs;
 using System.Numerics;
 
 using TextEditor.src.Class;
 using TextEditor.src.GUI.EditorWindow;
+using Rectangle = Raylib_cs.Rectangle;
+using Color = Raylib_cs.Color;
+using Font = Raylib_cs.Font;
 
 namespace TextEditor.GUI
 {
@@ -21,7 +25,7 @@ namespace TextEditor.GUI
         public TextBox()
         {
             
-            TextBoxText = new Text("Lorem\nipsum\ndolor\nsit\namet");
+            TextBoxText = new Text("");
             TextFont = Raylib.LoadFont("D:/nyquil/dev/csharp/TextEditor/src/media/fonts/arial.ttf");
             MaxTextLength = 1024;
             FontSize = 20;
@@ -37,27 +41,29 @@ namespace TextEditor.GUI
         }
         public void Update()
         {
-            int key = Raylib.GetCharPressed();
 
             TextBoxText.checkKeys();
 
-            while (key > 0)
+            ImGuiIOPtr io = ImGui.GetIO();  // Get the ImGui input/output pointer
+            // Iterate over all characters in the input queue
+            for (int i = 0; i < io.InputQueueCharacters.Size; i++)
             {
-            
-                if ((key >= 32) && (key <= 125) && (TextBoxText.text.Length < MaxTextLength))
+                ushort character = io.InputQueueCharacters[i];  // Get the character from the input queue
+                  // Log the pressed key (optional)
+                // Check if it's a printable character (between space and tilde)
+                if (character >= 32 && character <= 125 && TextBoxText.text.Length < MaxTextLength)
                 {
-                    TextBoxText.AddChar(key);
+                    TextBoxText.AddChar(character);  // Add the character to the text box
                 }
-
-                key = Raylib.GetCharPressed();
             }
+
+
 
             if (Raylib.IsKeyPressed(KeyboardKey.Backspace) && !TextBoxText.checkEmpty())
             {
                 TextBoxText.RemoveChar();
                 
             }
-
 
 
 
@@ -127,6 +133,8 @@ namespace TextEditor.GUI
                 ScrollbarVertical.EnableScrolling= false;
             }
         }
+        
+        
         
     }
 }

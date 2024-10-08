@@ -6,6 +6,8 @@ using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Rectangle = Raylib_cs.Rectangle;
+using Color = Raylib_cs.Color;
 
 namespace TextEditor.src.GUI.EditorWindow
 {

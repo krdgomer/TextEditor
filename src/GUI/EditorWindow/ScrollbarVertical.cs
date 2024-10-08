@@ -5,6 +5,8 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Rectangle = Raylib_cs.Rectangle;
+using Color = Raylib_cs.Color;
 
 namespace TextEditor.src.GUI.EditorWindow
 {

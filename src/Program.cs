@@ -5,11 +5,15 @@ using TextEditor.GUI;
 using TextEditor.src.Class;
 using TextEditor.src.GUI.EditorWindow;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using rlImGui_cs;
+using ImGuiNET;
+using Color = Raylib_cs.Color;
 
 namespace TextEditor
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
         
@@ -19,11 +23,16 @@ namespace TextEditor
             TextEditorWindow textEditorWindow = new TextEditorWindow();
 
             Raylib.SetTargetFPS(60);
+            
+            rlImGui.Setup(true);
+
+
 
             while (!Raylib.WindowShouldClose())
             {
-                // Update
 
+                // Update
+                rlImGui.Begin();
 
                 textEditorWindow.Update();
                 
@@ -33,12 +42,12 @@ namespace TextEditor
                 Raylib.ClearBackground(Color.RayWhite);
 
                 textEditorWindow.Draw();
-                
 
+                rlImGui.End();
                 Raylib.EndDrawing();
             }
             textEditorWindow.Unload();
-
+            rlImGui.Shutdown();
             Raylib.CloseWindow();
         }
     }
